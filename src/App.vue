@@ -1,0 +1,70 @@
+<!-- src/App.vue -->
+
+<template>
+  <div style="width: 100%; height: 100%; overflow: hidden">
+    <div style="float: left; height: 100%; width: 15%">
+      <el-row class="tac" style="height: 100%">
+        <el-col :span="24" style="height: 100%">
+          <el-menu
+            active-text-color="#ffd04b"
+            background-color="#545c64"
+            class="el-menu-vertical-demo"
+            default-active="oneFirstView"
+            text-color="#fff"
+            style="height: 100%"
+          >
+            <el-sub-menu
+              v-for="item in Items"
+              :index="item.key"
+              :key="item.key"
+            >
+              <template #title>
+                <el-icon><icon-menu /></el-icon>
+                <span>{{ item.label }}</span>
+              </template>
+              <el-menu-item
+                v-for="item1 in item.children"
+                @click="open(item.key, item1.key)"
+                :index="item1.key"
+                :key="item1.key"
+                >{{ item1.label }}</el-menu-item
+              >
+            </el-sub-menu>
+          </el-menu>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="cyxScene" style="float: left; height: 100%; width: 85%">
+      <router-view />
+    </div>
+  </div>
+</template>
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import { Menu as IconMenu } from "@element-plus/icons-vue";
+import Items from "./common/menuItem";
+import { useRouter } from "vue-router";
+import { fncamera } from "./common/three/camera";
+import { rendererfn } from "./common/three/renderer";
+import animate from "./common/three/animate";
+const router = useRouter(),
+  open = (key: string, key1: string) => {
+    router.push(`/${key}/${key1}`);
+  };
+onMounted(() => {
+  fncamera();
+  rendererfn();
+  animate();
+});
+</script>
+<style>
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+</style>
