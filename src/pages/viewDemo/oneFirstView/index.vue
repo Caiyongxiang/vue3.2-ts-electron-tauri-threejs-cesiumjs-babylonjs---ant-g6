@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cyxScene" style="width: 100%; height: 100%">
     <el-button
       type="primary"
       style="position: fixed; top: 10px; right: 10px"
@@ -21,6 +21,9 @@ import { onMounted, ref, onBeforeUnmount, nextTick } from "vue";
 import * as monaco from "monaco-editor";
 import scene from "../../../common/three/scene";
 import THREE from "../../../common/three/three";
+import { fncamera } from "../../../common/three/camera";
+import { renderer, rendererfn } from "../../../common/three/renderer";
+import animate from "../../../common/three/animate";
 
 const drawer = ref(false),
   requestRef = ref<number | null>(null),
@@ -28,34 +31,53 @@ const drawer = ref(false),
   modelworld = ref();
 
 onMounted(() => {
-  // 创建几何体
-  const geometry = new THREE.BoxGeometry(1, 1, 1),
-    // 创建材质
-    material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
-    // 创建网格
-    cube = new THREE.Mesh(geometry, material);
+  nextTick(() => {
+    fncamera();
+    rendererfn();
+    animate();
+    // 创建几何体
+    const geometry = new THREE.BoxGeometry(1, 1, 1),
+      // 创建材质
+      material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }),
+      // 创建网格
+      cube = new THREE.Mesh(geometry, material);
 
-  // 将网格添加到场景中
-  scene.add(cube);
-  function nowanimate() {
-    requestRef.value = requestAnimationFrame(nowanimate); // 更新 ref 的当前值
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-  }
-  nowanimate();
+    // 将网格添加到场景中
+    scene.add(cube);
+    function nowanimate() {
+      requestRef.value = requestAnimationFrame(nowanimate); // 更新 ref 的当前值
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+    }
+    nowanimate();
+  });
 });
 onBeforeUnmount(() => {
   if (requestRef.value !== null) {
-    cancelAnimationFrame(requestRef.value); // 取消动画帧
+    cancelAnimationFrame(requestRef.value);
   }
+
+  // 清理Monaco编辑器实例
+  if (threeworld.value && threeworld.value.__editor) {
+    threeworld.value.__editor.dispose();
+  }
+  if (modelworld.value && modelworld.value.__editor) {
+    modelworld.value.__editor.dispose();
+  }
+
+  // 清理Three.js场景和渲染器
   scene.traverse(function (obj) {
     if (obj instanceof THREE.Mesh) {
-      // 确认对象为 Mesh 类型
-      obj.geometry.dispose(); // 释放几何体资源
-      obj.material.dispose(); // 释放材质资源
+      obj.geometry.dispose();
+      obj.material.dispose();
     }
   });
   scene.clear();
+
+  if (renderer) {
+    // 确保你有一个对renderer的引用
+    renderer.dispose();
+  }
 });
 const opendraw = (): void => {
   drawer.value = true;

@@ -34,7 +34,7 @@
         </el-col>
       </el-row>
     </div>
-    <div class="cyxScene" style="float: left; height: 100%; width: 85%">
+    <div style="float: left; height: 100%; width: 85%">
       <router-view />
     </div>
   </div>
@@ -44,17 +44,13 @@ import { onMounted } from "vue";
 import { Menu as IconMenu } from "@element-plus/icons-vue";
 import Items from "./common/menuItem";
 import { useRouter } from "vue-router";
-import { fncamera } from "./common/three/camera";
-import { rendererfn } from "./common/three/renderer";
-import animate from "./common/three/animate";
+
 const router = useRouter(),
   open = (key: string, key1: string) => {
     router.push(`/${key}/${key1}`);
   };
 onMounted(() => {
-  fncamera();
-  rendererfn();
-  animate();
+  router.push(`/viewDemo/oneFirstView`);
 });
 </script>
 <style>

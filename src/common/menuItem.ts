@@ -17,7 +17,7 @@ const Items: MenuItem[] = [
   {
     key: "babylonjs",
     label: "babylonjs基础学习",
-    children: [{ key: "211", label: "第一个3d界面" }],
+    children: [{ key: "BasicView", label: "第一个3d界面" }],
   },
 ];
 export default Items;
