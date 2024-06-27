@@ -29,7 +29,7 @@
                 :key="item1.key"
               >
                 <template #title>
-                  <el-icon><icon-menu /></el-icon>
+                  <el-icon><View /></el-icon>
                   <span>{{ item1.label }}</span>
                 </template>
                 <el-menu-item
