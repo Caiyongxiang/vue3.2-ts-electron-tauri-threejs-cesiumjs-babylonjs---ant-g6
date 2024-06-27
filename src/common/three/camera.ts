@@ -2,7 +2,6 @@ import THREE from "./three";
 // 创建相机
 let camera = new THREE.PerspectiveCamera();
 function fncamera() {
-  console.log(22222);
   camera = new THREE.PerspectiveCamera(
     45,
     (document.getElementsByClassName("cyxScene")[0] as HTMLElement)

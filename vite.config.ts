@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
+import path from "path";
 import vue from "@vitejs/plugin-vue";
 import VueRouter from "unplugin-vue-router/vite";
-// import path from "path";
 import { codeInspectorPlugin } from "code-inspector-plugin";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
@@ -9,6 +9,11 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import monacoEditorPlugin from "vite-plugin-monaco-editor";
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // 将 '@' 设置为 'src' 目录的别名
+    },
+  },
   plugins: [
     AutoImport({
       resolvers: [ElementPlusResolver()],

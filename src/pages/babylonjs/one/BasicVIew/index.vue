@@ -11,19 +11,24 @@
 
     <el-drawer v-model="drawer" title="笔记内容" :with-header="false">
       <p>babylonjs渲染步骤:初始化引擎绑定Demo元素,创建场景，引擎循环渲染场景</p>
-      <div style="height: 300px; width: 400px" ref="threeworld"></div>
+      <div style="height: 300px; width: 100%" ref="threeworld"></div>
       <p>
         创建场景步骤：场景绑定引擎，创建相机绑定Demo元素，创建灯光和盒子绑定场景
       </p>
-      <div style="height: 280px; width: 400px" ref="modelworld"></div>
+      <div style="height: 280px; width: 100%" ref="modelworld"></div>
     </el-drawer>
   </div>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref, onBeforeUnmount, nextTick } from "vue";
 import * as monaco from "monaco-editor";
-import BasicScene from "../../../common/babylonjs/BasicScene";
-
+import BasicScene from "../../../../common/babylonjs/BasicScene";
+import {
+  MeshBuilder,
+  ArcRotateCamera,
+  Vector3,
+  HemisphericLight,
+} from "babylonjs";
 const drawer = ref(false),
   threeworld = ref(),
   modelworld = ref(),
@@ -32,6 +37,19 @@ const drawer = ref(false),
 onMounted(() => {
   nextTick(() => {
     babylonword.value = new BasicScene();
+    const scene = babylonword.value.getScene(),
+      canvas = babylonword.value.getcanvas(),
+      camera = new ArcRotateCamera(
+        "camera",
+        -Math.PI / 2,
+        Math.PI / 2.5,
+        10,
+        new Vector3(0, 0, 0),
+        scene
+      );
+    camera.attachControl(canvas, true); // 注意：修改了拼写错误
+    new HemisphericLight("light", new Vector3(1, 1, 0), scene);
+    MeshBuilder.CreateBox("box", {}, scene); // 将盒子添加到场景中
   });
 });
 onBeforeUnmount(() => {
@@ -59,7 +77,7 @@ const opendraw = (): void => {
       fontSize: 14,
     });
     monaco.editor.create(modelworld.value, {
-      value: ` createScene(): Scene {
+      value: `createScene(): Scene {
     const scene = new Scene(this.engine),
       camera = new ArcRotateCamera(
         "camera",
@@ -72,7 +90,6 @@ const opendraw = (): void => {
     camera.attachControl(this.canvas, true); // 注意：修改了拼写错误
     new HemisphericLight("light", new Vector3(0, 1, 0), scene);
     MeshBuilder.CreateBox("box", {}, scene); // 将盒子添加到场景中
-
     return scene;
   }`,
       language: "javascript",

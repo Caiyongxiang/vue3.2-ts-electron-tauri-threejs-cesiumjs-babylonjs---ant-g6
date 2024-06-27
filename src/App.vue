@@ -22,13 +22,25 @@
                 <el-icon><icon-menu /></el-icon>
                 <span>{{ item.label }}</span>
               </template>
-              <el-menu-item
+
+              <el-sub-menu
                 v-for="item1 in item.children"
-                @click="open(item.key, item1.key)"
                 :index="item1.key"
                 :key="item1.key"
-                >{{ item1.label }}</el-menu-item
               >
+                <template #title>
+                  <el-icon><icon-menu /></el-icon>
+                  <span>{{ item1.label }}</span>
+                </template>
+                <el-menu-item
+                  v-for="item2 in item1.children"
+                  @click="open(item.key, item1.key, item2.key)"
+                  :index="item2.key"
+                  :key="item2.key"
+                >
+                  {{ item2.label }}
+                </el-menu-item>
+              </el-sub-menu>
             </el-sub-menu>
           </el-menu>
         </el-col>
@@ -46,11 +58,11 @@ import Items from "./common/menuItem";
 import { useRouter } from "vue-router";
 
 const router = useRouter(),
-  open = (key: string, key1: string) => {
-    router.push(`/${key}/${key1}`);
+  open = (key: string, key1: string, key2: string) => {
+    router.push(`/${key}/${key1}/${key2}`);
   };
 onMounted(() => {
-  router.push(`/viewDemo/oneFirstView`);
+  router.push(`/viewDemo/one/oneFirstView`);
 });
 </script>
 <style>

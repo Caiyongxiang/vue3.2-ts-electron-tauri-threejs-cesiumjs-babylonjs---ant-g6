@@ -19,11 +19,11 @@
 <script lang="ts" setup>
 import { onMounted, ref, onBeforeUnmount, nextTick } from "vue";
 import * as monaco from "monaco-editor";
-import scene from "../../../common/three/scene";
-import THREE from "../../../common/three/three";
-import { fncamera } from "../../../common/three/camera";
-import { renderer, rendererfn } from "../../../common/three/renderer";
-import animate from "../../../common/three/animate";
+import scene from "../../../../common/three/scene";
+import THREE from "../../../../common/three/three";
+import { fncamera } from "../../../../common/three/camera";
+import { renderer, rendererfn } from "../../../../common/three/renderer";
+import animate from "../../../../common/three/animate";
 
 const drawer = ref(false),
   requestRef = ref<number | null>(null),
