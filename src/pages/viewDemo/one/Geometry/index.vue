@@ -336,6 +336,9 @@ onMounted(() => {
     rgbeLoader.load(
       "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
       (envMap: any) => {
+        if (window.location.pathname !== "/viewDemo/one/Geometry") {
+          return;
+        }
         // 设置球形贴图
         envMap.mapping = THREE.EquirectangularReflectionMapping;
         // 设置环境贴图
@@ -356,6 +359,9 @@ onMounted(() => {
       "../../../model/Duck.glb",
       // 加载完成回调
       (gltf) => {
+        if (window.location.pathname !== "/viewDemo/one/Geometry") {
+          return;
+        }
         console.log(gltf);
         scene.add(gltf.scene);
 
@@ -450,6 +456,9 @@ onMounted(() => {
       "../../../model/city.glb",
       // 加载完成回调
       (gltf) => {
+        if (window.location.pathname !== "/viewDemo/one/Geometry") {
+          return;
+        }
         gltf.scene.traverse((child: any) => {
           if (child.isMesh) {
             let building = child,

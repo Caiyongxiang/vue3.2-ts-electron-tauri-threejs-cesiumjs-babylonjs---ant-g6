@@ -360,6 +360,12 @@ onMounted(() => {
     rgbeLoader.load(
       "../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
       (envMap) => {
+        if (
+          window.location.pathname !==
+          "/viewDemo/one/texturefroggygltfloaderlighttween"
+        ) {
+          return;
+        }
         // 设置球形贴图
         envMap.mapping = THREE.EquirectangularReflectionMapping;
         // 设置环境贴图
@@ -394,6 +400,12 @@ onMounted(() => {
       "../../model/Duck.glb",
       // 加载完成回调
       (gltf) => {
+        if (
+          window.location.pathname !==
+          "/viewDemo/one/texturefroggygltfloaderlighttween"
+        ) {
+          return;
+        }
         console.log(gltf);
         scene.add(gltf.scene);
       }
@@ -411,6 +423,12 @@ onMounted(() => {
       "../../model/city.glb",
       // 加载完成回调
       (gltf) => {
+        if (
+          window.location.pathname !==
+          "/viewDemo/one/texturefroggygltfloaderlighttween"
+        ) {
+          return;
+        }
         // console.log(gltf);
         scene.add(gltf.scene);
       }
@@ -557,6 +575,10 @@ onBeforeUnmount(() => {
   }
   scene.fog = null;
   // 清理Three.js场景和渲染器
+  // 设置环境贴图
+  scene.background = null;
+  // 设置环境贴图
+  scene.environment = null;
   scene.traverse(function (obj) {
     if (obj instanceof THREE.Mesh) {
       if (obj.geometry) {

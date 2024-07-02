@@ -505,6 +505,9 @@ onMounted(() => {
     rgbeLoader.load(
       "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
       (envMap) => {
+        if (window.location.pathname !== "/viewDemo/one/Material") {
+          return;
+        }
         // 设置球形贴图
         envMap.mapping = THREE.EquirectangularReflectionMapping;
         // 设置环境贴图
@@ -520,6 +523,9 @@ onMounted(() => {
           "../../../model/Duck.glb",
           // 加载完成回调
           (gltf) => {
+            if (window.location.pathname !== "/viewDemo/one/Material") {
+              return;
+            }
             console.log(gltf);
             scene.add(gltf.scene);
             let duckMesh = gltf.scene.getObjectByName("LOD3spShape") as any,
@@ -555,6 +561,9 @@ onMounted(() => {
       "../../../model/sword/sword.gltf",
       // 加载完成回调
       (gltf) => {
+        if (window.location.pathname !== "/viewDemo/one/Material") {
+          return;
+        }
         console.log(gltf);
         gltf.scene.position.set(0, -1, 0);
         scene.add(gltf.scene);
@@ -658,6 +667,9 @@ onMounted(() => {
       });
     const loader = new THREE.ObjectLoader();
     loader.load("../../../model/damon/scene.json", (object) => {
+      if (window.location.pathname !== "/viewDemo/one/Material") {
+        return;
+      }
       object.position.set(-3, 1, 0);
       scene.add(object);
     });
@@ -668,6 +680,9 @@ onMounted(() => {
       "../../../model/mobile/scene.glb",
       // 加载完成回调
       (gltf) => {
+        if (window.location.pathname !== "/viewDemo/one/Material") {
+          return;
+        }
         console.log(gltf);
         gltf.scene.position.set(-6, 1, 0);
         scene.add(gltf.scene);
@@ -680,6 +695,9 @@ onMounted(() => {
       "../../../model/liveroom-scene.glb",
       // 加载完成回调
       (gltf) => {
+        if (window.location.pathname !== "/viewDemo/one/Material") {
+          return;
+        }
         scene.add(gltf.scene);
       }
     );
