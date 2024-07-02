@@ -255,11 +255,11 @@ onMounted(() => {
 });
 onBeforeUnmount(() => {
   babylonword.value.dispose();
-  editorInstances.value.forEach(
-    (editor: monaco.editor.IStandaloneCodeEditor) => {
-      editor.dispose();
-    }
-  );
+  // editorInstances.value.forEach(
+  //   (editor: monaco.editor.IStandaloneCodeEditor) => {
+  //     editor.dispose();
+  //   }
+  // );
 });
 const opendraw = (): void => {
   drawer.value = true;

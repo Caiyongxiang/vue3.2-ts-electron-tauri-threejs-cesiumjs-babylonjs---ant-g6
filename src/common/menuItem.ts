@@ -16,6 +16,22 @@ const Items: MenuItem[] = [
             key: "oneFirstView",
             label: "第一个3d界面",
           },
+          {
+            key: "threejsbasiceditor",
+            label: "threejs基本配置",
+          },
+          {
+            key: "texturefroggygltfloaderlighttween",
+            label: "基础贴图雾gltf模型加载灯光tween动画",
+          },
+          {
+            key: "Geometry",
+            label: "Geometry",
+          },
+          {
+            key: "Material",
+            label: "Material",
+          },
         ],
       },
     ],
@@ -36,6 +52,7 @@ const Items: MenuItem[] = [
           { key: "BasicView", label: "第一个3d界面" },
           { key: "ImportModel", label: "babylon导入模型" },
           { key: "Village", label: "村庄" },
+          { key: "ParentChildren", label: "父子模型" },
         ],
       },
     ],

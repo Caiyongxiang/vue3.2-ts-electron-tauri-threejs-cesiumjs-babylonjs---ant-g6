@@ -31,6 +31,8 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "vue"],
   rules: {
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-explicit-any": 0,
     "vue/multi-word-component-names": "off",
     // "prettier/prettier": "error",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",

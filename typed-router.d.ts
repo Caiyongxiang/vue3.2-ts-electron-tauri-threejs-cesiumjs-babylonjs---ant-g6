@@ -21,8 +21,12 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/BasicVIew/': RouteRecordInfo<'/babylonjs/one/BasicVIew/', '/babylonjs/one/BasicVIew', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/ImportModel/': RouteRecordInfo<'/babylonjs/one/ImportModel/', '/babylonjs/one/ImportModel', Record<never, never>, Record<never, never>>,
-    '/babylonjs/one/ParentChildren.vue/': RouteRecordInfo<'/babylonjs/one/ParentChildren.vue/', '/babylonjs/one/ParentChildren/vue', Record<never, never>, Record<never, never>>,
+    '/babylonjs/one/ParentChildren/': RouteRecordInfo<'/babylonjs/one/ParentChildren/', '/babylonjs/one/ParentChildren', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/Village/': RouteRecordInfo<'/babylonjs/one/Village/', '/babylonjs/one/Village', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/Geometry/': RouteRecordInfo<'/viewDemo/one/Geometry/', '/viewDemo/one/Geometry', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/Material/': RouteRecordInfo<'/viewDemo/one/Material/', '/viewDemo/one/Material', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/oneFirstView/': RouteRecordInfo<'/viewDemo/one/oneFirstView/', '/viewDemo/one/oneFirstView', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/texturefroggygltfloaderlighttween/': RouteRecordInfo<'/viewDemo/one/texturefroggygltfloaderlighttween/', '/viewDemo/one/texturefroggygltfloaderlighttween', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/threejsbasiceditor/': RouteRecordInfo<'/viewDemo/one/threejsbasiceditor/', '/viewDemo/one/threejsbasiceditor', Record<never, never>, Record<never, never>>,
   }
 }

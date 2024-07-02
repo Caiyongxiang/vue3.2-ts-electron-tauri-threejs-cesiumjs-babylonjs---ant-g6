@@ -2,7 +2,7 @@
 
 <template>
   <div style="width: 100%; height: 100%; overflow: hidden">
-    <div style="float: left; height: 100%; width: 15%">
+    <div style="float: left; height: 100%; width: 22%">
       <el-row class="tac" style="height: 100%">
         <el-col :span="24" style="height: 100%">
           <el-menu
@@ -46,7 +46,7 @@
         </el-col>
       </el-row>
     </div>
-    <div style="float: left; height: 100%; width: 85%">
+    <div style="float: left; height: 100%; width: 78%">
       <router-view />
     </div>
   </div>
