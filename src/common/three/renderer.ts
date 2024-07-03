@@ -9,6 +9,7 @@ function rendererfn() {
   (document.getElementsByClassName("cyxScene")[0] as HTMLElement).appendChild(
     renderer.domElement
   );
+  return renderer;
 }
 
 export { rendererfn, renderer };
