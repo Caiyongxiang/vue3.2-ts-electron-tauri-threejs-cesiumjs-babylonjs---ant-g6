@@ -32,6 +32,10 @@ const Items: MenuItem[] = [
             key: "Material",
             label: "Material",
           },
+          {
+            key: "Texture",
+            label: "Texture",
+          },
         ],
       },
     ],
