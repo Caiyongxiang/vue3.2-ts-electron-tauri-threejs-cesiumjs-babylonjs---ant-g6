@@ -57,6 +57,7 @@ const drawer = ref(false),
     gridHelper.material.opacity = 0.3;
     gridHelper.material.transparent = true;
     scene.add(gridHelper);`,
+      height: "50px",
     },
     {
       description: "创建变换控制器",
