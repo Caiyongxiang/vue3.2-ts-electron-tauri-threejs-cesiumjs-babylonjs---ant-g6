@@ -23,6 +23,7 @@ declare module 'vue-router/auto-routes' {
     '/babylonjs/one/ImportModel/': RouteRecordInfo<'/babylonjs/one/ImportModel/', '/babylonjs/one/ImportModel', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/ParentChildren/': RouteRecordInfo<'/babylonjs/one/ParentChildren/', '/babylonjs/one/ParentChildren', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/Village/': RouteRecordInfo<'/babylonjs/one/Village/', '/babylonjs/one/Village', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/animation/': RouteRecordInfo<'/viewDemo/one/animation/', '/viewDemo/one/animation', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/easyEditor/': RouteRecordInfo<'/viewDemo/one/easyEditor/', '/viewDemo/one/easyEditor', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Geometry/': RouteRecordInfo<'/viewDemo/one/Geometry/', '/viewDemo/one/Geometry', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Light/': RouteRecordInfo<'/viewDemo/one/Light/', '/viewDemo/one/Light', Record<never, never>, Record<never, never>>,

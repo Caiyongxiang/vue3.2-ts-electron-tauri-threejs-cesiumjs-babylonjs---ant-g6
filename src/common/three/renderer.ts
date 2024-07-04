@@ -9,6 +9,9 @@ function rendererfn() {
   (document.getElementsByClassName("cyxScene")[0] as HTMLElement).appendChild(
     renderer.domElement
   );
+  renderer.shadowMap.enabled = true;
+  renderer.toneMapping = THREE.ReinhardToneMapping;
+  renderer.toneMappingExposure = 1;
   return renderer;
 }
 

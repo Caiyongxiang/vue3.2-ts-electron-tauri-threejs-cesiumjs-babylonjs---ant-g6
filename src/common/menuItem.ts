@@ -44,6 +44,10 @@ const Items: MenuItem[] = [
             key: "easyEditor",
             label: "easyEditor",
           },
+          {
+            key: "animation",
+            label: "animation",
+          },
         ],
       },
     ],

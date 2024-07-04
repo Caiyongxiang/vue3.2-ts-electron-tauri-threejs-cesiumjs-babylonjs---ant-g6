@@ -132,7 +132,8 @@ onBeforeUnmount(() => {
     }
   });
   scene.clear();
-
+  scene.background = null;
+  scene.environment = null;
   if (renderer) {
     // 确保你有一个对renderer的引用
     renderer.dispose();
