@@ -179,6 +179,7 @@ onMounted(() => {
     rendererfn();
     animate();
     windowinit();
+
     scene.add(axesHelper);
     // 创建几何体
     const geometry = new THREE.BoxGeometry(1, 1, 1),
