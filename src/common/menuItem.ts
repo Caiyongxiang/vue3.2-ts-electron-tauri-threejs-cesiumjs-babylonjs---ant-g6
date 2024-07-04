@@ -48,6 +48,10 @@ const Items: MenuItem[] = [
             key: "animation",
             label: "animation",
           },
+          {
+            key: "Points",
+            label: "Points",
+          },
         ],
       },
     ],

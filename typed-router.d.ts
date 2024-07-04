@@ -29,6 +29,7 @@ declare module 'vue-router/auto-routes' {
     '/viewDemo/one/Light/': RouteRecordInfo<'/viewDemo/one/Light/', '/viewDemo/one/Light', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Material/': RouteRecordInfo<'/viewDemo/one/Material/', '/viewDemo/one/Material', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/oneFirstView/': RouteRecordInfo<'/viewDemo/one/oneFirstView/', '/viewDemo/one/oneFirstView', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/Points/': RouteRecordInfo<'/viewDemo/one/Points/', '/viewDemo/one/Points', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Texture/': RouteRecordInfo<'/viewDemo/one/Texture/', '/viewDemo/one/Texture', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/texturefroggygltfloaderlighttween/': RouteRecordInfo<'/viewDemo/one/texturefroggygltfloaderlighttween/', '/viewDemo/one/texturefroggygltfloaderlighttween', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/threejsbasiceditor/': RouteRecordInfo<'/viewDemo/one/threejsbasiceditor/', '/viewDemo/one/threejsbasiceditor', Record<never, never>, Record<never, never>>,

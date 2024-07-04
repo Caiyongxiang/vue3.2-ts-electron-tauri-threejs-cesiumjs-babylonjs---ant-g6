@@ -40,8 +40,7 @@ const drawer = ref(false),
   requestRef = ref<number | null>(null),
   tipArr = ref([
     {
-      description:
-        "web三维主要构成元素:场景，相机，渲染器，渲染函数实时执行渲染器构建",
+      description: `web三维主要构成元素:场景，相机，渲染器，渲染函数实时执行渲染器构建`,
       code: ` // 导入threejs
 import * as THREE from "three";
 
@@ -76,7 +75,7 @@ animate();`,
       height: "230px",
     },
     {
-      description: "模型主要构成元素:几何体，材质",
+      description: `模型主要构成元素:几何体，材质`,
       code: `// 创建几何体
     const geometry = new THREE.BoxGeometry(1, 1, 1)
     // 创建材质
