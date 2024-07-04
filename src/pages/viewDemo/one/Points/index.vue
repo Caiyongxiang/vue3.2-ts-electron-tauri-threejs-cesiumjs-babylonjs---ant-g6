@@ -80,7 +80,7 @@ vertexColors: true <br>
 是否使用顶点颜色。这意味着每个粒子可以有不同的颜色，而不仅仅是单一的颜色。<br>
 例如，在一个粒子系统中，不同的粒子可以根据它们的位置显示不同的颜色，从而创建彩虹效果。`,
       code: `   const textureLoader = new THREE.TextureLoader()
-    const particlesTexture = textureLoader.load('../../../texture/particles/1.png')
+    const particlesTexture = textureLoader.load('/texture/particles/1.png')
     scene.add(axesHelper)
     const params = {
       count: 10000,
@@ -166,7 +166,7 @@ onMounted(() => {
     addControls();
     windowinit();
     const textureLoader = new THREE.TextureLoader(),
-      particlesTexture = textureLoader.load("../../../texture/particles/1.png");
+      particlesTexture = textureLoader.load("/texture/particles/1.png");
     scene.add(axesHelper);
     const params = {
       count: 10000,

@@ -14,6 +14,7 @@
     "@element-plus/icons-vue": "^2.3.1",
     "babylonjs": "^7.11.4",
     "babylonjs-loaders": "^7.13.0",
+    "cannon-es": "^0.20.0",
     "element-plus": "2.1",
     "gasp": "^0.0.2",
     "gsap": "^3.12.5",

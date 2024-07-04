@@ -51,14 +51,14 @@ const drawer = ref(false),
       language: "javascript",
       code: `    gltfLoader.load(
       // 模型路径
-      '../../../model/Duck.glb',
+      '/model/Duck.glb',
       // 加载完成回调
       gltf => {
         console.log(gltf)
         scene.add(gltf.scene)
 
         let duckMesh = gltf.scene.getObjectByName('LOD3spShape') as any
-        let matcapTexture = new THREE.TextureLoader().load('../../../texture/matcaps/54584E_B1BAC5_818B91_A7ACA3-512px.png')
+        let matcapTexture = new THREE.TextureLoader().load('/texture/matcaps/54584E_B1BAC5_818B91_A7ACA3-512px.png')
         let preMaterial = duckMesh.material
         duckMesh.material = new THREE.MeshMatcapMaterial({
           matcadescription: matcapTexture,
@@ -118,16 +118,16 @@ MeshStandardMaterial：<br>
     let planeGeometry = new THREE.PlaneGeometry(1, 1, 200, 200)
     // 添加纹理
     let textureLoader = new THREE.TextureLoader()
-    let colorTexture = textureLoader.load('../../../texture/watercover/CityNewYork002_COL_VAR1_1K.png')
+    let colorTexture = textureLoader.load('/texture/watercover/CityNewYork002_COL_VAR1_1K.png')
     colorTexture.colorSpace = THREE.SRGBColorSpace
     // 高光贴图
-    let specularTexture = textureLoader.load('../../../texture/watercover/CityNewYork002_GLOSS_1K.jpg')
+    let specularTexture = textureLoader.load('/texture/watercover/CityNewYork002_GLOSS_1K.jpg')
     // 法线贴图
-    let normalTexture = textureLoader.load('../../../texture/watercover/CityNewYork002_NRM_1K.jpg')
+    let normalTexture = textureLoader.load('/texture/watercover/CityNewYork002_NRM_1K.jpg')
     // 凹凸贴图
-    let dispTexture = textureLoader.load('../../../texture/watercover/CityNewYork002_DISP_1K.jpg')
+    let dispTexture = textureLoader.load('/texture/watercover/CityNewYork002_DISP_1K.jpg')
     // 环境光遮蔽贴图
-    let aoTexture = textureLoader.load('../../../texture/watercover/CityNewYork002_AO_1K.jpg')
+    let aoTexture = textureLoader.load('/texture/watercover/CityNewYork002_AO_1K.jpg')
     let planeMaterial = new THREE.MeshLambertMaterial({
       madescription: colorTexture,
       specularMadescription: specularTexture,
@@ -347,7 +347,7 @@ iridescenceThicknessMap
       language: "javascript",
       code: `
         const loader = new THREE.ObjectLoader()
-    loader.load('../../../model/damon/scene.json', object => {
+    loader.load('/model/damon/scene.json', object => {
       scene.add(object)
     })
     `,
@@ -440,14 +440,14 @@ onMounted(() => {
     // 加载模型
     // gltfLoader.load(
     //   // 模型路径
-    //   '../../../model/Duck.glb',
+    //   '/model/Duck.glb',
     //   // 加载完成回调
     //   gltf => {
     //     console.log(gltf)
     //     scene.add(gltf.scene)
 
     //     let duckMesh = gltf.scene.getObjectByName('LOD3spShape') as any
-    //     let matcapTexture = new THREE.TextureLoader().load('../../../texture/matcaps/54584E_B1BAC5_818B91_A7ACA3-512px.png')
+    //     let matcapTexture = new THREE.TextureLoader().load('/texture/matcaps/54584E_B1BAC5_818B91_A7ACA3-512px.png')
     //     let preMaterial = duckMesh.material
     //     duckMesh.material = new THREE.MeshMatcapMaterial({
     //       matcap: matcapTexture,
@@ -468,24 +468,24 @@ onMounted(() => {
       // 添加纹理
       textureLoader = new THREE.TextureLoader(),
       colorTexture = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_COL_VAR1_1K.png"
+        "/texture/watercover/CityNewYork002_COL_VAR1_1K.png"
       );
     colorTexture.colorSpace = THREE.SRGBColorSpace;
     // 高光贴图
     let specularTexture = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_GLOSS_1K.jpg"
+        "/texture/watercover/CityNewYork002_GLOSS_1K.jpg"
       ),
       // 法线贴图
       normalTexture = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_NRM_1K.jpg"
+        "/texture/watercover/CityNewYork002_NRM_1K.jpg"
       ),
       // 凹凸贴图
       dispTexture = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_DISP_1K.jpg"
+        "/texture/watercover/CityNewYork002_DISP_1K.jpg"
       ),
       // 环境光遮蔽贴图
       aoTexture = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_AO_1K.jpg"
+        "/texture/watercover/CityNewYork002_AO_1K.jpg"
       ),
       planeMaterial = new THREE.MeshLambertMaterial({
         map: colorTexture,
@@ -502,45 +502,42 @@ onMounted(() => {
     scene.add(plane);
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader();
-    rgbeLoader.load(
-      "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
-      (envMap) => {
-        if (window.location.pathname !== "/viewDemo/one/Material") {
-          return;
-        }
-        // 设置球形贴图
-        envMap.mapping = THREE.EquirectangularReflectionMapping;
-        // 设置环境贴图
-        scene.background = envMap;
-        // 设置环境贴图
-        scene.environment = envMap;
-
-        planeMaterial.envMap = envMap;
-
-        // 加载模型
-        gltfLoader.load(
-          // 模型路径
-          "../../../model/Duck.glb",
-          // 加载完成回调
-          (gltf) => {
-            if (window.location.pathname !== "/viewDemo/one/Material") {
-              return;
-            }
-            console.log(gltf);
-            scene.add(gltf.scene);
-            let duckMesh = gltf.scene.getObjectByName("LOD3spShape") as any,
-              preMaterial = duckMesh.material;
-            duckMesh.material = new THREE.MeshPhongMaterial({
-              // color: 0xffffff,
-              map: preMaterial.map,
-              refractionRatio: 0.7,
-              reflectivity: 0.99,
-              envMap: envMap,
-            });
-          }
-        );
+    rgbeLoader.load("/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr", (envMap) => {
+      if (window.location.pathname !== "/viewDemo/one/Material") {
+        return;
       }
-    );
+      // 设置球形贴图
+      envMap.mapping = THREE.EquirectangularReflectionMapping;
+      // 设置环境贴图
+      scene.background = envMap;
+      // 设置环境贴图
+      scene.environment = envMap;
+
+      planeMaterial.envMap = envMap;
+
+      // 加载模型
+      gltfLoader.load(
+        // 模型路径
+        "/model/Duck.glb",
+        // 加载完成回调
+        (gltf) => {
+          if (window.location.pathname !== "/viewDemo/one/Material") {
+            return;
+          }
+          console.log(gltf);
+          scene.add(gltf.scene);
+          let duckMesh = gltf.scene.getObjectByName("LOD3spShape") as any,
+            preMaterial = duckMesh.material;
+          duckMesh.material = new THREE.MeshPhongMaterial({
+            // color: 0xffffff,
+            map: preMaterial.map,
+            refractionRatio: 0.7,
+            reflectivity: 0.99,
+            envMap: envMap,
+          });
+        }
+      );
+    });
     function nowanimate() {
       requestRef.value = requestAnimationFrame(nowanimate); // 更新 ref 的当前值
     }
@@ -552,13 +549,13 @@ onMounted(() => {
     // 实例化加载器draco
     const dracoLoader = new DRACOLoader();
     // 设置draco路径
-    dracoLoader.setDecoderPath("../../draco/");
+    dracoLoader.setDecoderPath("/draco/");
     // 设置gltf加载器draco解码器
     gltfLoader.setDRACOLoader(dracoLoader);
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/sword/sword.gltf",
+      "/model/sword/sword.gltf",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/Material") {
@@ -578,7 +575,7 @@ onMounted(() => {
     );
 
     let thicknessMap = new THREE.TextureLoader().load(
-      "../../../texture/diamond/diamond_emissive.png"
+      "/texture/diamond/diamond_emissive.png"
     );
     // 创建立方体
     const geometry = new THREE.BoxGeometry(1, 1, 1),
@@ -604,7 +601,7 @@ onMounted(() => {
     // reflectivity
     gui.add(cube.material, "reflectivity", 0, 1).name("反射率");
     let brickRoughness = new THREE.TextureLoader().load(
-      "../../../texture/brick/brick_roughness.jpg"
+      "/texture/brick/brick_roughness.jpg"
     );
     // 创建球几何体
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32),
@@ -666,7 +663,7 @@ onMounted(() => {
         sphereMaterial1.iridescenceThicknessRange[1] = iridescenceThickness.max;
       });
     const loader = new THREE.ObjectLoader();
-    loader.load("../../../model/damon/scene.json", (object) => {
+    loader.load("/model/damon/scene.json", (object) => {
       if (window.location.pathname !== "/viewDemo/one/Material") {
         return;
       }
@@ -677,7 +674,7 @@ onMounted(() => {
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/mobile/scene.glb",
+      "/model/mobile/scene.glb",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/Material") {
@@ -692,7 +689,7 @@ onMounted(() => {
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/liveroom-scene.glb",
+      "/model/liveroom-scene.glb",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/Material") {

@@ -102,20 +102,20 @@ reflectivity: 调整金属球的反射效果，让它看起来更像镜子或更
     // 加载纹理
     let texture = textureLoader.load('/texture/watercover/CityNewYork002_COL_VAR1_1K.png')
     // 加载ao贴图
-    let aoMap = textureLoader.load('../../../texture/watercover/CityNewYork002_AO_1K.jpg')
+    let aoMap = textureLoader.load('/texture/watercover/CityNewYork002_AO_1K.jpg')
 
     // 透明度贴图
-    let alphaMap = textureLoader.load('../../../texture/door/height.jpg')
+    let alphaMap = textureLoader.load('/texture/door/height.jpg')
 
     // 光照贴图
-    let lightMap = textureLoader.load('../../../texture/colors.png')
+    let lightMap = textureLoader.load('/texture/colors.png')
 
     // 高光贴图
-    let specularMap = textureLoader.load('../../../texture/watercover/CityNewYork002_GLOSS_1K.jpg')
+    let specularMap = textureLoader.load('/texture/watercover/CityNewYork002_GLOSS_1K.jpg')
     addControls()
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader()
-    rgbeLoader.load('../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
+    rgbeLoader.load('/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr', envMap => {
       // 设置球形贴图
       envMap.mapping = THREE.EquirectangularReflectionMapping
       // 设置环境贴图
@@ -196,7 +196,7 @@ Linear:<br>
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      '../../model/Duck.glb',
+      '/model/Duck.glb',
       // 加载完成回调
       gltf => {
         console.log(gltf)
@@ -207,13 +207,13 @@ Linear:<br>
     // 实例化加载器draco
     const dracoLoader = new DRACOLoader()
     // 设置draco路径
-    dracoLoader.setDecoderPath('../../draco/')
+    dracoLoader.setDecoderPath('/draco/')
     // 设置gltf加载器draco解码器
     gltfLoader.setDRACOLoader(dracoLoader)
 
     gltfLoader.load(
       // 模型路径
-      '../../model/city.glb',
+      '/model/city.glb',
       // 加载完成回调
       gltf => {
         // console.log(gltf);
@@ -327,15 +327,15 @@ onMounted(() => {
       ),
       // 加载ao贴图
       aoMap = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_AO_1K.jpg"
+        "/texture/watercover/CityNewYork002_AO_1K.jpg"
       ),
       // 透明度贴图
-      //   alphaMap = textureLoader.load("../../../texture/door/height.jpg"),
+      //   alphaMap = textureLoader.load("/texture/door/height.jpg"),
       // 光照贴图
-      //   lightMap = textureLoader.load("../../../texture/colors.png"),
+      //   lightMap = textureLoader.load("/texture/colors.png"),
       // 高光贴图
       specularMap = textureLoader.load(
-        "../../../texture/watercover/CityNewYork002_GLOSS_1K.jpg"
+        "/texture/watercover/CityNewYork002_GLOSS_1K.jpg"
       );
     addControls();
     // rgbeLoader 加载hdr贴图
@@ -357,25 +357,22 @@ onMounted(() => {
         specularMap: specularMap,
         reflectivity: 0.5,
       });
-    rgbeLoader.load(
-      "../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
-      (envMap) => {
-        if (
-          window.location.pathname !==
-          "/viewDemo/one/texturefroggygltfloaderlighttween"
-        ) {
-          return;
-        }
-        // 设置球形贴图
-        envMap.mapping = THREE.EquirectangularReflectionMapping;
-        // 设置环境贴图
-        scene.background = envMap;
-        // 设置环境贴图
-        scene.environment = envMap;
-        // 设置plane的环境贴图
-        planeMaterial.envMap = envMap;
+    rgbeLoader.load("/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr", (envMap) => {
+      if (
+        window.location.pathname !==
+        "/viewDemo/one/texturefroggygltfloaderlighttween"
+      ) {
+        return;
       }
-    );
+      // 设置球形贴图
+      envMap.mapping = THREE.EquirectangularReflectionMapping;
+      // 设置环境贴图
+      scene.background = envMap;
+      // 设置环境贴图
+      scene.environment = envMap;
+      // 设置plane的环境贴图
+      planeMaterial.envMap = envMap;
+    });
 
     // planeMaterial.map = texture;
     let plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -397,7 +394,7 @@ onMounted(() => {
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../model/Duck.glb",
+      "/model/Duck.glb",
       // 加载完成回调
       (gltf) => {
         if (
@@ -414,13 +411,13 @@ onMounted(() => {
     // 实例化加载器draco
     const dracoLoader = new DRACOLoader();
     // 设置draco路径
-    dracoLoader.setDecoderPath("../../draco/");
+    dracoLoader.setDecoderPath("/draco/");
     // 设置gltf加载器draco解码器
     gltfLoader.setDRACOLoader(dracoLoader);
 
     gltfLoader.load(
       // 模型路径
-      "../../model/city.glb",
+      "/model/city.glb",
       // 加载完成回调
       (gltf) => {
         if (

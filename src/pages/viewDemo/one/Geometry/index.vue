@@ -119,7 +119,7 @@ const drawer = ref(false),
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/Duck.glb",
+      "/model/Duck.glb",
       // 加载完成回调
       (gltf) => {
         console.log(gltf);
@@ -213,7 +213,7 @@ const drawer = ref(false),
       description: `线框几何体`,
       code: `        gltfLoader1.load(
       // 模型路径
-      "../../../model/city.glb",
+      "/model/city.glb",
       // 加载完成回调
       (gltf) => {
         gltf.scene.traverse((child: any) => {
@@ -255,7 +255,7 @@ onMounted(() => {
     animate();
     addControls();
     let uvTexture = new THREE.TextureLoader().load(
-      "../../texture/uv_grid_opengl.jpg"
+      "/texture/uv_grid_opengl.jpg"
     );
 
     // // 创建平面几何体
@@ -334,7 +334,7 @@ onMounted(() => {
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader();
     rgbeLoader.load(
-      "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
+      "/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
       (envMap: any) => {
         if (window.location.pathname !== "/viewDemo/one/Geometry") {
           return;
@@ -356,7 +356,7 @@ onMounted(() => {
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/Duck.glb",
+      "/model/Duck.glb",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/Geometry") {
@@ -448,12 +448,12 @@ onMounted(() => {
       // 实例化加载器draco
       dracoLoader = new DRACOLoader();
     // 设置draco路径
-    dracoLoader.setDecoderPath("../../draco/");
+    dracoLoader.setDecoderPath("/draco/");
     // 设置gltf加载器draco解码器
     gltfLoader1.setDRACOLoader(dracoLoader);
     gltfLoader1.load(
       // 模型路径
-      "../../../model/city.glb",
+      "/model/city.glb",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/Geometry") {

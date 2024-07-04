@@ -56,6 +56,24 @@ const Items: MenuItem[] = [
             key: "officialWebsite",
             label: "officialWebsite",
           },
+          {
+            key: "CANONView",
+            label: "物理引擎",
+          },
+          {
+            key: "WebGlDemo",
+            label: "WebGlDemo",
+          },
+        ],
+      },
+      {
+        key: "two",
+        label: "第二阶段",
+        children: [
+          {
+            key: "oneShader",
+            label: "第一个Shader界面",
+          },
         ],
       },
     ],

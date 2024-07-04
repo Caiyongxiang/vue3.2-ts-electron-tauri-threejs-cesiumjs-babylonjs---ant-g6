@@ -24,6 +24,7 @@ declare module 'vue-router/auto-routes' {
     '/babylonjs/one/ParentChildren/': RouteRecordInfo<'/babylonjs/one/ParentChildren/', '/babylonjs/one/ParentChildren', Record<never, never>, Record<never, never>>,
     '/babylonjs/one/Village/': RouteRecordInfo<'/babylonjs/one/Village/', '/babylonjs/one/Village', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/animation/': RouteRecordInfo<'/viewDemo/one/animation/', '/viewDemo/one/animation', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/CANONView/': RouteRecordInfo<'/viewDemo/one/CANONView/', '/viewDemo/one/CANONView', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/easyEditor/': RouteRecordInfo<'/viewDemo/one/easyEditor/', '/viewDemo/one/easyEditor', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Geometry/': RouteRecordInfo<'/viewDemo/one/Geometry/', '/viewDemo/one/Geometry', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/Light/': RouteRecordInfo<'/viewDemo/one/Light/', '/viewDemo/one/Light', Record<never, never>, Record<never, never>>,
@@ -34,5 +35,7 @@ declare module 'vue-router/auto-routes' {
     '/viewDemo/one/Texture/': RouteRecordInfo<'/viewDemo/one/Texture/', '/viewDemo/one/Texture', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/texturefroggygltfloaderlighttween/': RouteRecordInfo<'/viewDemo/one/texturefroggygltfloaderlighttween/', '/viewDemo/one/texturefroggygltfloaderlighttween', Record<never, never>, Record<never, never>>,
     '/viewDemo/one/threejsbasiceditor/': RouteRecordInfo<'/viewDemo/one/threejsbasiceditor/', '/viewDemo/one/threejsbasiceditor', Record<never, never>, Record<never, never>>,
+    '/viewDemo/one/WebGlDemo/': RouteRecordInfo<'/viewDemo/one/WebGlDemo/', '/viewDemo/one/WebGlDemo', Record<never, never>, Record<never, never>>,
+    '/viewDemo/two/oneShader/': RouteRecordInfo<'/viewDemo/two/oneShader/', '/viewDemo/two/oneShader', Record<never, never>, Record<never, never>>,
   }
 }

@@ -88,8 +88,8 @@ const drawer = ref(false),
       code: `   // 创建平面
 const planeGeometry = new THREE.PlaneGeometry(10, 10);
 const planeMaterial = new THREE.MeshBasicMaterial({
-  // map: new THREE.TextureLoader().load("./texture/brick/brick_diffuse.jpg"),
-  map: new THREE.TextureLoader().load("./texture/sprite0.png"),
+  // map: new THREE.TextureLoader().load("/texture/brick/brick_diffuse.jpg"),
+  map: new THREE.TextureLoader().load("/texture/sprite0.png"),
   side: THREE.DoubleSide,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -98,7 +98,7 @@ scene.add(plane);
 // 创建平面2
 const planeGeometry1 = new THREE.PlaneGeometry(10, 10);
 const planeMaterial1 = new THREE.MeshBasicMaterial({
-  map: new THREE.TextureLoader().load("./texture/lensflare0_alpha.png"),
+  map: new THREE.TextureLoader().load("/texture/lensflare0_alpha.png"),
   side: THREE.DoubleSide,
 });
 const plane1 = new THREE.Mesh(planeGeometry1, planeMaterial1);
@@ -198,7 +198,7 @@ blendEquationAlpha, blendSrcAlpha, blendDstAlpha: 这些设置决定了水面的
 通过这些属性的组合，我们可以创造出一个既美观又符合物理逻辑的3D场景。草地覆盖在水面之上，而水面又能透出下方的景象，呈现逼真的视觉效果。`,
       code: `  // 创建平面
     let spriteTexture = new THREE.TextureLoader().load(
-      "../../../texture/sprite0.png"
+      "/texture/sprite0.png"
     );
     spriteTexture.colorSpace = THREE.SRGBColorSpace;
     const planeGeometry5 = new THREE.PlaneGeometry(10, 10),
@@ -371,7 +371,7 @@ onMounted(() => {
     // 创建纹理加载器
     let textureLoader = new THREE.TextureLoader(),
       // 加载纹理
-      texture = textureLoader.load("../../../texture/amber/base_color.jpg"),
+      texture = textureLoader.load("/texture/amber/base_color.jpg"),
       planeGeometry = new THREE.PlaneGeometry(1, 1),
       planeMaterial = new THREE.MeshBasicMaterial({
         color: 0xffffff,
@@ -399,7 +399,7 @@ onMounted(() => {
     texture.rotation = Math.PI / 4;
     // 加载纹理
     // let texture = textureLoader.load("./texture/uv_grid_opengl.jpg");
-    let texture1 = textureLoader.load("../../../texture/rain.png"),
+    let texture1 = textureLoader.load("/texture/rain.png"),
       planeGeometry1 = new THREE.PlaneGeometry(1, 1),
       planeMaterial1 = new THREE.MeshBasicMaterial({
         color: 0xffffff,
@@ -410,9 +410,7 @@ onMounted(() => {
       plane1 = new THREE.Mesh(planeGeometry1, planeMaterial1);
     plane.position.set(2, 0, 0);
     scene.add(plane1);
-    let texture2 = textureLoader.load(
-        "../../../texture/brick/brick_diffuse.jpg"
-      ),
+    let texture2 = textureLoader.load("/texture/brick/brick_diffuse.jpg"),
       // let texture = textureLoader.load("./texture/rain.png");
       planeGeometry2 = new THREE.PlaneGeometry(1, 1),
       planeMaterial2 = new THREE.MeshBasicMaterial({
@@ -450,7 +448,7 @@ onMounted(() => {
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader();
     rgbeLoader.load(
-      "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
+      "/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
       (envMap: any) => {
         if (window.location.pathname !== "/viewDemo/one/Texture") {
           return;
@@ -472,7 +470,7 @@ onMounted(() => {
     // 创建平面
     const planeGeometry3 = new THREE.PlaneGeometry(10, 10),
       planeMaterial3 = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load("../../../texture/sprite0.png"),
+        map: new THREE.TextureLoader().load("/texture/sprite0.png"),
         side: THREE.DoubleSide,
       }),
       plane3 = new THREE.Mesh(planeGeometry3, planeMaterial3);
@@ -482,9 +480,7 @@ onMounted(() => {
     // 创建平面2
     const planeGeometry4 = new THREE.PlaneGeometry(10, 10),
       planeMaterial4 = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load(
-          "../../../texture/lensflare0_alpha.png"
-        ),
+        map: new THREE.TextureLoader().load("/texture/lensflare0_alpha.png"),
         side: THREE.DoubleSide,
       }),
       plane4 = new THREE.Mesh(planeGeometry4, planeMaterial4);
@@ -560,9 +556,7 @@ onMounted(() => {
 
     gui2.add(plane4, "renderOrder", 0, 10).step(1).name("渲染顺序");
     // 创建平面
-    let spriteTexture = new THREE.TextureLoader().load(
-      "../../../texture/sprite0.png"
-    );
+    let spriteTexture = new THREE.TextureLoader().load("/texture/sprite0.png");
     spriteTexture.colorSpace = THREE.SRGBColorSpace;
     const planeGeometry5 = new THREE.PlaneGeometry(10, 10),
       planeMaterial5 = new THREE.MeshBasicMaterial({

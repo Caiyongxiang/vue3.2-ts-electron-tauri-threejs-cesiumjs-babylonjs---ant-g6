@@ -181,35 +181,32 @@ onMounted(() => {
     nowanimate();
     // rgbeLoader 加载hdr贴图
     let rgbeLoader = new RGBELoader();
-    rgbeLoader.load(
-      "../../../texture/Alex_Hart-Nature_Lab_Bones_2k.hdr",
-      (envMap) => {
-        if (window.location.pathname !== "/viewDemo/one/easyEditor") {
-          return;
-        }
-        // 设置球形贴图
-        // envMap.mapping = THREE.EquirectangularReflectionMapping;
-        envMap.mapping = THREE.EquirectangularRefractionMapping;
-        // 设置环境贴图
-        // scene.background = envMap;
-        scene.background = new THREE.Color(0xcccccc);
-        // 设置环境贴图
-        scene.environment = envMap;
+    rgbeLoader.load("/texture/Alex_Hart-Nature_Lab_Bones_2k.hdr", (envMap) => {
+      if (window.location.pathname !== "/viewDemo/one/easyEditor") {
+        return;
       }
-    );
+      // 设置球形贴图
+      // envMap.mapping = THREE.EquirectangularReflectionMapping;
+      envMap.mapping = THREE.EquirectangularRefractionMapping;
+      // 设置环境贴图
+      // scene.background = envMap;
+      scene.background = new THREE.Color(0xcccccc);
+      // 设置环境贴图
+      scene.environment = envMap;
+    });
     // rgbeLoader 加载hdr贴图
     // 实例化加载器gltf
     const gltfLoader = new GLTFLoader(),
       // 实例化加载器draco
       dracoLoader = new DRACOLoader();
     // 设置draco路径
-    dracoLoader.setDecoderPath("../../draco/");
+    dracoLoader.setDecoderPath("/draco/");
     // 设置gltf加载器draco解码器
     gltfLoader.setDRACOLoader(dracoLoader);
     // 加载模型
     gltfLoader.load(
       // 模型路径
-      "../../../model/house/house-scene-min.glb",
+      "/model/house/house-scene-min.glb",
       // 加载完成回调
       (gltf) => {
         if (window.location.pathname !== "/viewDemo/one/easyEditor") {
@@ -293,11 +290,11 @@ onMounted(() => {
     let meshList: any = [
         {
           name: "盆栽",
-          path: "../../../model/house/plants-min.glb",
+          path: "/model/house/plants-min.glb",
         },
         {
           name: "单人沙发",
-          path: "../../../model/house/sofa_chair_min.glb",
+          path: "/model/house/sofa_chair_min.glb",
         },
       ],
       folderAddMehs = gui.addFolder("添加物体"),
